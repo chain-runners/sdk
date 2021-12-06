@@ -19,7 +19,7 @@ async function main(): Promise<void> {
 main()
 ```
 
-### Mutations
+### Functions
 
-Note, this package includes a variety of mutations used in RunnerHub such as `setBioForRunner`. These mutations require
-a valid auth token which isn't really 
+Will expand this documentation over time, for now either utilize intellisense in your editor or check out the types
+in `src/generated.ts` starting on line 410 to see what functions are available. 

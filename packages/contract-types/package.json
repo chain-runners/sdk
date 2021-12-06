@@ -1,5 +1,5 @@
 {
-  "name": "@chain-runners/common",
+  "name": "@chain-runners/contract-types",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -15,6 +15,12 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "ethers": "^5.5.2",
+    "@ethersproject/abi": "^5.5.0",
+    "@ethersproject/bytes": "^5.5.0",
+    "@ethersproject/providers": "^5.5.0"
   },
   "author": "Chain Runners Devs",
   "license": "ISC",

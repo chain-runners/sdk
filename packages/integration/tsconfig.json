@@ -4,6 +4,17 @@
     "outDir": "dist",
     "rootDir": "src"
   },
+  "references": [
+    {
+      "path": "../api-client",
+    },
+    {
+      "path": "../contract-types",
+    },
+    {
+      "path": "../common",
+    }
+  ],
   "exclude": [
     "node_modules",
     "dist"
