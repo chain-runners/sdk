@@ -1,0 +1,10 @@
+fragment runner on Token {
+    __typename
+    id
+    rawMetadata
+    ownerAddress
+    dnaHexString
+    traitIds
+    updatedAt
+    createdAt
+}

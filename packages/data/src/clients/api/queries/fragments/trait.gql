@@ -1,0 +1,10 @@
+fragment trait on Trait {
+    __typename
+    id
+    name
+    displayName
+    type
+    traitIndex
+    svgContent
+    tokenCount
+}

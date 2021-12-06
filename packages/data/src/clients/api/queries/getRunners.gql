@@ -1,0 +1,8 @@
+query getRunners($options: TokenQueryOptions) {
+    tokens(options: $options) {
+        count
+        records {
+            ...runner
+        }
+    }
+}

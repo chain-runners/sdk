@@ -1,0 +1,6 @@
+mutation disconnectDiscordAccount {
+    disconnectDiscordAccount {
+        message
+        success
+    }
+}

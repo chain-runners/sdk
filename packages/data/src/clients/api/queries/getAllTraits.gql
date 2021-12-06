@@ -1,0 +1,8 @@
+query getAllTraits {
+    traits {
+        records {
+            ...trait
+        }
+        count
+    }
+}

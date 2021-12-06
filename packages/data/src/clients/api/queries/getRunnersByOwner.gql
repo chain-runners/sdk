@@ -1,0 +1,8 @@
+query getRunnersByOwner($owner: String!) {
+    tokens(options: {filters: {ownedBy: $owner}}) {
+        count
+        records {
+            ...runner
+        }
+    }
+}

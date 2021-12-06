@@ -1,0 +1,32 @@
+{
+  "name": "@chain-runners/sdk",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build --stream",
+    "bootstrap": "lerna bootstrap",
+    "clean": "yarn workspaces run clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chain-runners/sdk.git"
+  },
+  "author": "Chain Runners Devs",
+  "bugs": {
+    "url": "https://github.com/chain-runners/sdk/issues"
+  },
+  "homepage": "https://github.com/chain-runners/sdk#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "eslint": "^7.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "typescript": "^4.1.2"
+  }
+}

@@ -1,0 +1,6 @@
+mutation syncDiscordRoles {
+  syncDiscordRoles {
+    message
+    success
+  }
+}

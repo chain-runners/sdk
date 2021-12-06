@@ -1,0 +1,7 @@
+mutation refreshToken {
+  refreshToken {
+    message
+    success
+    token
+  }
+}

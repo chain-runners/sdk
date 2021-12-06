@@ -1,0 +1,20 @@
+{
+  "name": "Subgraph",
+  "schemaPath": "generated-remote-schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Remote GraphQL Endpoint": {
+        "url": "https://api.thegraph.com/subgraphs/name/knav-eth/chain-runners",
+        "introspect": true
+      },
+      "Production Chain Runners GraphQL": {
+        "url": "https://api.chainrunners.xyz/graphql",
+        "introspect": true
+      },
+      "Local GraphQL": {
+        "url": "http://localhost:3001/graphql",
+        "introspect": true
+      }
+    }
+  }
+}

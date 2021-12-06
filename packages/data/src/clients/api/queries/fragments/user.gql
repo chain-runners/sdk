@@ -1,0 +1,10 @@
+fragment user on User {
+  __typename
+  id
+  address
+  role
+  updatedAt
+  createdAt
+  discordAccountId
+  discordAccountName
+}

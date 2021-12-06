@@ -1,0 +1,12 @@
+query getBioForRunner($runnerId: Int!) {
+    bioForRunner(runnerId: $runnerId) {
+        textContent {
+            text
+            inlineStyleRanges {
+                length
+                style
+                offset
+            }
+        }
+    }
+}

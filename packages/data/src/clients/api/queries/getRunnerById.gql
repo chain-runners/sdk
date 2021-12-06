@@ -1,0 +1,5 @@
+query getRunnerById($id: ID!) {
+    token(id: $id) {
+        ...runner
+    }
+}

@@ -1,0 +1,10 @@
+mutation login($address: String!, $signature: String!) {
+  login(input: { address: $address, signature: $signature }) {
+    message
+    success
+    token
+    user {
+      ...user
+    }
+  }
+}
