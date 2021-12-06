@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/common",
-  "version": "0.0.3",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,6 +10,10 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "codegen": "graphql-codegen generate"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Chain Runners Devs",
-  "license": "ISC"
+  "license": "ISC",
+  "gitHead": "a6b038be88ed871c7c1475840a3b28f8cc4e789b"
 }

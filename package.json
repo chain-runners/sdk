@@ -1,6 +1,5 @@
 {
   "name": "@chain-runners/sdk",
-  "version": "0.0.1",
   "private": true,
   "workspaces": [
     "packages/*"
