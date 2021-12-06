@@ -1,0 +1,15 @@
+{
+  "name": "@chain-runners/common",
+  "version": "0.0.2",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "compile": "tsc -b",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "codegen": "graphql-codegen generate"
+  },
+  "author": "Chain Runners Devs",
+  "license": "ISC"
+}

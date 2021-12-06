@@ -1,0 +1,27 @@
+{
+  "name": "@chain-runners/data",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "compile": "tsc -b",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "codegen": "graphql-codegen generate"
+  },
+  "dependencies": {
+    "@chain-runners/common": "^0.0.2",
+    "graphql": "^16.0.1",
+    "graphql-request": "^3.6.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/add": "^3.1.0",
+    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/typescript": "^2.4.0",
+    "@graphql-codegen/typescript-graphql-request": "^4.3.0",
+    "@graphql-codegen/typescript-operations": "^2.2.0",
+    "@types/graphql": "^14.5.0"
+  },
+  "author": "Chain Runners Devs",
+  "license": "ISC"
+}
