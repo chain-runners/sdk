@@ -1,6 +1,0 @@
-mutation linkDiscordAccount($code: String!) {
-  linkDiscordAccount(code: $code) {
-    message
-    success
-  }
-}

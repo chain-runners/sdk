@@ -288,21 +288,9 @@ export type WalletListResponse = {
   records: Array<Wallet>;
 };
 
-export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type CurrentUserQuery = { __typename?: 'Query', whoAmI?: { __typename: 'User', id: string, address: string, role: UserRole, updatedAt: any, createdAt: any, discordAccountId?: string | null | undefined, discordAccountName?: string | null | undefined } | null | undefined };
-
-export type DisconnectDiscordAccountMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type DisconnectDiscordAccountMutation = { __typename?: 'Mutation', disconnectDiscordAccount: { __typename?: 'MutationResponse', message: string, success: boolean } };
-
 export type RunnerFragment = { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaHexString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
 
 export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, svgContent: string, tokenCount: number };
-
-export type UserFragment = { __typename: 'User', id: string, address: string, role: UserRole, updatedAt: any, createdAt: any, discordAccountId?: string | null | undefined, discordAccountName?: string | null | undefined };
 
 export type GetAllTraitsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -337,44 +325,6 @@ export type GetRunnersByOwnerQueryVariables = Exact<{
 
 export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaHexString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
-export type LinkDiscordAccountMutationVariables = Exact<{
-  code: Scalars['String'];
-}>;
-
-
-export type LinkDiscordAccountMutation = { __typename?: 'Mutation', linkDiscordAccount: { __typename?: 'MutationResponse', message: string, success: boolean } };
-
-export type LoginMutationVariables = Exact<{
-  address: Scalars['String'];
-  signature: Scalars['String'];
-}>;
-
-
-export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'UserLoginResponse', message: string, success: boolean, token?: string | null | undefined, user?: { __typename: 'User', id: string, address: string, role: UserRole, updatedAt: any, createdAt: any, discordAccountId?: string | null | undefined, discordAccountName?: string | null | undefined } | null | undefined } };
-
-export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type LogoutMutation = { __typename?: 'Mutation', logout: { __typename?: 'MutationResponse', message: string, success: boolean } };
-
-export type RefreshTokenMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type RefreshTokenMutation = { __typename?: 'Mutation', refreshToken: { __typename?: 'RefreshTokenResponse', message: string, success: boolean, token?: string | null | undefined } };
-
-export type SetBioForRunnerMutationVariables = Exact<{
-  runnerId: Scalars['Int'];
-  content: Array<RichTextBlockInput> | RichTextBlockInput;
-}>;
-
-
-export type SetBioForRunnerMutation = { __typename?: 'Mutation', setBioForRunner: { __typename?: 'MutationResponse', message: string, success: boolean } };
-
-export type SyncDiscordRolesMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SyncDiscordRolesMutation = { __typename?: 'Mutation', syncDiscordRoles: { __typename?: 'MutationResponse', message: string, success: boolean } };
-
 export const RunnerFragmentDoc = gql`
     fragment runner on Token {
   __typename
@@ -397,33 +347,6 @@ export const TraitFragmentDoc = gql`
   traitIndex
   svgContent
   tokenCount
-}
-    `;
-export const UserFragmentDoc = gql`
-    fragment user on User {
-  __typename
-  id
-  address
-  role
-  updatedAt
-  createdAt
-  discordAccountId
-  discordAccountName
-}
-    `;
-export const CurrentUserDocument = gql`
-    query currentUser {
-  whoAmI {
-    ...user
-  }
-}
-    ${UserFragmentDoc}`;
-export const DisconnectDiscordAccountDocument = gql`
-    mutation disconnectDiscordAccount {
-  disconnectDiscordAccount {
-    message
-    success
-  }
 }
     `;
 export const GetAllTraitsDocument = gql`
@@ -477,59 +400,6 @@ export const GetRunnersByOwnerDocument = gql`
   }
 }
     ${RunnerFragmentDoc}`;
-export const LinkDiscordAccountDocument = gql`
-    mutation linkDiscordAccount($code: String!) {
-  linkDiscordAccount(code: $code) {
-    message
-    success
-  }
-}
-    `;
-export const LoginDocument = gql`
-    mutation login($address: String!, $signature: String!) {
-  login(input: {address: $address, signature: $signature}) {
-    message
-    success
-    token
-    user {
-      ...user
-    }
-  }
-}
-    ${UserFragmentDoc}`;
-export const LogoutDocument = gql`
-    mutation logout {
-  logout {
-    message
-    success
-  }
-}
-    `;
-export const RefreshTokenDocument = gql`
-    mutation refreshToken {
-  refreshToken {
-    message
-    success
-    token
-  }
-}
-    `;
-export const SetBioForRunnerDocument = gql`
-    mutation setBioForRunner($runnerId: Int!, $content: [RichTextBlockInput!]!) {
-  setBioForRunner(runnerId: $runnerId, content: $content) {
-    message
-    success
-  }
-}
-    `;
-export const SyncDiscordRolesDocument = gql`
-    mutation syncDiscordRoles {
-  syncDiscordRoles {
-    message
-    success
-  }
-}
-    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string) => Promise<T>;
 
@@ -538,12 +408,6 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    currentUser(variables?: CurrentUserQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CurrentUserQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<CurrentUserQuery>(CurrentUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'currentUser');
-    },
-    disconnectDiscordAccount(variables?: DisconnectDiscordAccountMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<DisconnectDiscordAccountMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<DisconnectDiscordAccountMutation>(DisconnectDiscordAccountDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'disconnectDiscordAccount');
-    },
     getAllTraits(variables?: GetAllTraitsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetAllTraitsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllTraitsQuery>(GetAllTraitsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllTraits');
     },
@@ -558,24 +422,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getRunnersByOwner(variables: GetRunnersByOwnerQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetRunnersByOwnerQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetRunnersByOwnerQuery>(GetRunnersByOwnerDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getRunnersByOwner');
-    },
-    linkDiscordAccount(variables: LinkDiscordAccountMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<LinkDiscordAccountMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<LinkDiscordAccountMutation>(LinkDiscordAccountDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'linkDiscordAccount');
-    },
-    login(variables: LoginMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<LoginMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<LoginMutation>(LoginDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'login');
-    },
-    logout(variables?: LogoutMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<LogoutMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<LogoutMutation>(LogoutDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'logout');
-    },
-    refreshToken(variables?: RefreshTokenMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<RefreshTokenMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<RefreshTokenMutation>(RefreshTokenDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'refreshToken');
-    },
-    setBioForRunner(variables: SetBioForRunnerMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SetBioForRunnerMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<SetBioForRunnerMutation>(SetBioForRunnerDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'setBioForRunner');
-    },
-    syncDiscordRoles(variables?: SyncDiscordRolesMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SyncDiscordRolesMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<SyncDiscordRolesMutation>(SyncDiscordRolesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'syncDiscordRoles');
     }
   };
 }

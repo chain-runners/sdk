@@ -1,6 +1,0 @@
-mutation setBioForRunner($runnerId: Int!, $content: [RichTextBlockInput!]!) {
-    setBioForRunner(runnerId: $runnerId, content: $content) {
-        message
-        success
-    }
-}
