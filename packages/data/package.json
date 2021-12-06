@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/data",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,7 +10,7 @@
     "codegen": "graphql-codegen generate"
   },
   "dependencies": {
-    "@chain-runners/common": "^0.0.2",
+    "@chain-runners/common": "^0.0.3",
     "graphql": "^16.0.1",
     "graphql-request": "^3.6.1"
   },
