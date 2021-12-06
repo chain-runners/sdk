@@ -13,7 +13,6 @@ Consists of various packages to help facilitate building on the [Chain Runners](
 
 ### Packages
 
-- `@chain-runners/common`: Package of common TS utilities, not necessarily CR-specific but used by core CR repos
-- `@chain-runners/data`: Data utilities for working with CR data such as generated GraphQL clients and typed contract
-  wrappers
+- `@chain-runners/api-client`: Generated `graphql-request` for the Chain Runners GraphQL API
+- `@chain-runners/contract-types`: Generated contract clients for the Chain Runners contracts with types
 - `@chain-runners/ui`: React component library used to build core CR experiences such as the RunnerHub
