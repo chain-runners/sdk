@@ -13,7 +13,6 @@
     "codegen": "graphql-codegen generate"
   },
   "dependencies": {
-    "@chain-runners/common": "^0.0.1",
     "graphql": "^16.0.1",
     "graphql-request": "^3.6.1"
   },

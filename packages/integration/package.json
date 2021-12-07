@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@chain-runners/api-client": "0.0.1",
-    "@chain-runners/common": "0.0.1",
     "@chain-runners/contract-types": "0.0.1",
     "ethers": "^5.5.2"
   },
