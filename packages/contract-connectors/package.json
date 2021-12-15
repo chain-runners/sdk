@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/contract-connectors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,10 +17,10 @@
     "access": "public"
   },
   "dependencies": {
-    "ethers": "^5.5.2",
     "@ethersproject/abi": "^5.5.0",
     "@ethersproject/bytes": "^5.5.0",
-    "@ethersproject/providers": "^5.5.0"
+    "@ethersproject/providers": "^5.5.0",
+    "ethers": "^5.5.2"
   },
   "author": "Chain Runners Devs",
   "license": "ISC",

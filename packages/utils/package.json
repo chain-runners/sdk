@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,8 +17,8 @@
     "access": "public"
   },
   "dependencies": {
+    "@chain-runners/types": "^0.0.2",
     "ethers": "^5.5.2",
-    "@chain-runners/types": "0.0.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
