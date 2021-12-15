@@ -3,6 +3,7 @@ import {
   ChainRunners__factory,
   MAINNET_CHAIN_RUNNERS_CONTRACT_ADDRESS,
 } from '@chain-runners/contract-connectors'
+import { prettyLog } from '@chain-runners/utils'
 import { ethers } from 'ethers'
 
 const INFURA_ID = process.env.INFURA_ID
@@ -14,13 +15,12 @@ async function main() {
     MAINNET_CHAIN_RUNNERS_CONTRACT_ADDRESS,
     provider,
   )
-
   const dnaResult = await contract.getDna(780)
   console.log(dnaResult.toString())
 
   const client = getChainRunnersAPIClient()
   const result = await client.getRunnerById({ id: '780' })
-  console.log(JSON.stringify(result.token, null, 2))
+  prettyLog({ token: result.token })
 }
 
 main().then(() => {
