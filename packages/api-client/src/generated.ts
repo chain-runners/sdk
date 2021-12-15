@@ -170,7 +170,7 @@ export type Token = {
   __typename?: 'Token';
   attributes: Array<TokenAttribute>;
   createdAt: Scalars['LuxonDateTime'];
-  dnaHexString: Scalars['String'];
+  dnaString: Scalars['String'];
   id: Scalars['Int'];
   ownerAddress: Scalars['String'];
   rawMetadata: Scalars['String'];
@@ -288,7 +288,7 @@ export type WalletListResponse = {
   records: Array<Wallet>;
 };
 
-export type RunnerFragment = { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaHexString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
+export type RunnerFragment = { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
 
 export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, svgContent: string, tokenCount: number };
 
@@ -309,21 +309,21 @@ export type GetRunnerByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetRunnerByIdQuery = { __typename?: 'Query', token?: { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaHexString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
+export type GetRunnerByIdQuery = { __typename?: 'Query', token?: { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
 
 export type GetRunnersQueryVariables = Exact<{
   options?: InputMaybe<TokenQueryOptions>;
 }>;
 
 
-export type GetRunnersQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaHexString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetRunnersQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
 export type GetRunnersByOwnerQueryVariables = Exact<{
   owner: Scalars['String'];
 }>;
 
 
-export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaHexString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
 export const RunnerFragmentDoc = gql`
     fragment runner on Token {
@@ -331,7 +331,7 @@ export const RunnerFragmentDoc = gql`
   id
   rawMetadata
   ownerAddress
-  dnaHexString
+  dnaString
   traitIds
   updatedAt
   createdAt

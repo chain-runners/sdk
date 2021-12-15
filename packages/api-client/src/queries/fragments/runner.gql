@@ -3,7 +3,7 @@ fragment runner on Token {
     id
     rawMetadata
     ownerAddress
-    dnaHexString
+    dnaString
     traitIds
     updatedAt
     createdAt

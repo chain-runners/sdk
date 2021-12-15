@@ -1,0 +1,25 @@
+{
+  "name": "@chain-runners/data",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "compile": "tsc -b",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "codegen": "graphql-codegen generate"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@chain-runners/types": "0.0.1"
+  },
+  "author": "Chain Runners Devs",
+  "license": "ISC",
+  "gitHead": "a6b038be88ed871c7c1475840a3b28f8cc4e789b"
+}

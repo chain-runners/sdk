@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "references": [
+    {
+      "path": "../api-client",
+    },
+    {
+      "path": "../contract-connectors",
+    },
+    {
+      "path": "../types",
+    },
+    {
+      "path": "../utils",
+    },
+    {
+      "path": "../data",
+    }
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

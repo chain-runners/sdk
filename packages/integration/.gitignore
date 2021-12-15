@@ -1,7 +1,0 @@
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# Generated
-generated-remote-schema.graphql

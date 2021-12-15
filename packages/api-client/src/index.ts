@@ -1,6 +1,9 @@
 import { GraphQLClient } from 'graphql-request'
 import { getSdk } from './generated'
 
+export type { Trait as APITrait, Token as APIToken } from './generated'
+export { TraitType } from './generated'
+
 export const DEFAULT_CHAIN_RUNNERS_GRAPHQL_API_ENDPOINT =
   'https://api.chainrunners.xyz/graphql'
 export type GraphQLAPIClient = ReturnType<typeof getSdk>
