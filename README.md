@@ -11,10 +11,25 @@ Consists of various packages to help facilitate building on the [Chain Runners](
    are in a phase of rapid iteration. This is especially true of the Terminal which is basically in an MVP state and
    will almost certainly see very significant changes in the coming weeks and months.
 
+### Usage
+
+To use the packages in this repo you need to install them individually like:
+
+```shell
+yarn add @chain-runners/api-client
+```
+
+or
+
+```shell
+yarn add @chain-runners/types
+```
+
 ### Packages
 
 - `@chain-runners/api-client`: Generated `graphql-request` for the Chain Runners GraphQL API
 - `@chain-runners/contract-connectors`: Generated contract clients for the Chain Runners contracts with types
-- `@chain-runners/ui`: React component library used to build core CR experiences such as the RunnerHub
+- `@chain-runners/data`: Static data exports for convenience when it's more efficient than getting from the backend
 - `@chain-runners/types`: Common types used throughout the Chain Runners repos
+- `@chain-runners/ui`: React component library used to build core CR experiences such as the RunnerHub
 - `@chain-runners/utils`: Common utility functions used throughout the Chain Runners repos
