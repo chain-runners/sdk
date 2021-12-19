@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { HACKER_GREEN_COLOR } from '../theme/theme'
+import { HACKER_GREEN_COLOR } from '../theme'
 import { usePersistedState } from './usePersistedState'
 
 export type PrimaryThemeColorContextValue = {

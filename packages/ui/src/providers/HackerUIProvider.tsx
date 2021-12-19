@@ -1,7 +1,7 @@
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import React from 'react'
 import { PrimaryThemeColorProvider } from '../hooks/usePrimaryColor'
-import { defaultHackerUITheme, HackerUITheme } from '../theme/theme'
+import { defaultHackerUITheme, HackerUITheme } from '../theme'
 import { GlobalStylesProvider } from './GlobalStylesProvider'
 
 export type HackerUIProviderProps = {
