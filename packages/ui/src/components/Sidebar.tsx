@@ -7,12 +7,12 @@ import { MotionBox, MotionFlex } from '../utils/animation'
 import { alphaColor } from '../utils/colors'
 import { ModalCloseButton } from './ModalCloseButton'
 
-export enum CollapsibleSidebarSide {
+export enum SidebarSide {
   Left = 'Left',
   Right = 'Right',
 }
 
-export type CollapsibleSidebarTab = {
+export type SidebarTab = {
   icon: React.FC
   content: React.ReactElement
 }
@@ -21,9 +21,9 @@ export type SidebarProps = {
   title?: string | React.ReactElement
   isOpen?: boolean
   setIsOpen?: Dispatch<SetStateAction<boolean>>
-  side?: CollapsibleSidebarSide
+  side?: SidebarSide
   width?: number | string
-  tabs?: Array<CollapsibleSidebarTab>
+  tabs?: Array<SidebarTab>
 }
 
 export const COLLAPSIBLE_SIDEBAR_CLOSED_WIDTH = '40px'
@@ -56,12 +56,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setIsOpen: externalSetIsOpen,
   title,
   children,
-  side = CollapsibleSidebarSide.Left,
+  side = SidebarSide.Left,
   width = '300px',
   tabs,
 }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0)
-  const isLeft = useMemo(() => side === CollapsibleSidebarSide.Left, [side])
+  const isLeft = useMemo(() => side === SidebarSide.Left, [side])
   const isMobile = useIsMobile()
   const { primaryColor } = usePrimaryColor()
   const [internalIsOpen, internalSetIsOpen] = useState(true)

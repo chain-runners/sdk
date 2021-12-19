@@ -26,13 +26,13 @@ export type { ModalErrorDisplayProps } from './ModalErrorDisplay'
 export { ModalErrorDisplay } from './ModalErrorDisplay'
 
 export type { NotchedCornerProps } from './NotchedCorner'
-export { NotchedCorner } from './NotchedCorner'
+export { NotchedCorner, NotchedCornerPosition } from './NotchedCorner'
 
 export type { ScanLinesProps } from './ScanLines'
 export { ScanLines } from './ScanLines'
 
-export type { SidebarProps } from './Sidebar'
-export { Sidebar } from './Sidebar'
+export type { SidebarProps, SidebarTab } from './Sidebar'
+export { Sidebar, SidebarSide } from './Sidebar'
 
 export type { SidebarCheckboxFilterProps } from './SidebarCheckboxFilter'
 export { SidebarCheckboxFilter } from './SidebarCheckboxFilter'
