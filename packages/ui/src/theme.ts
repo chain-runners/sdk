@@ -16,7 +16,7 @@ const styles: Styles = {
     body: {
       bg: '#000000',
       color: HACKER_GREEN_COLOR,
-      fontFamily: 'Source Serif Pro',
+      fontFamily: 'Roboto Mono',
     },
   },
 }
@@ -24,7 +24,7 @@ const styles: Styles = {
 const themeExtension = {
   config,
   fonts: {
-    heading: 'Source Serif Pro',
+    heading: 'Roboto Mono',
     body: 'Roboto Mono',
     pixel: 'Pixelar Regular W01 Regular',
   },
