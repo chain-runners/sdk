@@ -9,7 +9,8 @@
     "bootstrap": "lerna bootstrap",
     "lint": "eslint ./packages --ext .ts,.tsx",
     "lint:parallel": "lerna run lint --parallel",
-    "clean": "yarn workspaces run clean"
+    "clean": "yarn workspaces run clean",
+    "prepublish": "yarn clean && yarn build"
   },
   "repository": {
     "type": "git",

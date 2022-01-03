@@ -19,15 +19,17 @@ export enum ImageFileType {
 export function getImageUrlForToken(
   tokenId: number,
   hiddenTraits?: HiddenTraits,
-  fileType?: ImageFileType,
+  fileType: ImageFileType = ImageFileType.png,
 ): string {
   const layerFlags = hiddenTraits ? encodeLayerFlags(hiddenTraits) : undefined
   const params = layerFlags ? `?layerFlags=${layerFlags}` : ''
-  const fileTypeOrDefault = fileType ?? ImageFileType.png
-  return `https://img.chainrunners.xyz/api/v1/tokens/${fileTypeOrDefault}/${tokenId}${params}`
+
+  return `https://img.chainrunners.xyz/api/v1/tokens/${fileType}/${tokenId}${params}`
 }
 
-export function getImageUrlForTrait(traitId: number, fileType?: ImageFileType): string {
-  const fileTypeOrDefault = fileType ?? ImageFileType.png
-  return `https://img.chainrunners.xyz/api/v1/traits/${fileTypeOrDefault}/${traitId}.${fileTypeOrDefault}`
+export function getImageUrlForTrait(
+  traitId: number,
+  fileType: ImageFileType = ImageFileType.png,
+): string {
+  return `https://img.chainrunners.xyz/api/v1/traits/${fileType}/${traitId}.${fileType}`
 }
