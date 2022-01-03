@@ -1499,11 +1499,6 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@fontsource/source-serif-pro@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-serif-pro/-/source-serif-pro-4.5.0.tgz#5c348a1d6e7b4f4db23764842e89ccac48cfc3f6"
-  integrity sha512-v42UCl87ao3+IxNGLy4ZzoUrRoPlLpqIrUXy5RYj8/bupnLYAEjesc7nFDLEkvzzgZQDFUEW8ljpNL1n9ehmAg==
-
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
