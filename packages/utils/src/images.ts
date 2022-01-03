@@ -29,6 +29,9 @@ export function getImageUrlForToken(
   }/${tokenId}${params}`
 }
 
-export function getImageUrlForTrait(traitId: number): string {
-  return `https://img.chainrunners.xyz/api/v1/traits/svg/${traitId}.svg`
+export function getImageUrlForTrait(
+  traitId: number,
+  fileType: ImageFileType = ImageFileType.png,
+): string {
+  return `https://img.chainrunners.xyz/api/v1/traits/${fileType}/${traitId}.${fileType}`
 }
