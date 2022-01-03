@@ -23,15 +23,11 @@ export function getImageUrlForToken(
 ): string {
   const layerFlags = hiddenTraits ? encodeLayerFlags(hiddenTraits) : undefined
   const params = layerFlags ? `?layerFlags=${layerFlags}` : ''
-
-  return `https://img.chainrunners.xyz/api/v1/tokens/${
-    fileType ?? ImageFileType.png
-  }/${tokenId}${params}`
+  const fileTypeOrDefault = fileType ?? ImageFileType.png
+  return `https://img.chainrunners.xyz/api/v1/tokens/${fileTypeOrDefault}/${tokenId}${params}`
 }
 
-export function getImageUrlForTrait(
-  traitId: number,
-  fileType: ImageFileType = ImageFileType.png,
-): string {
-  return `https://img.chainrunners.xyz/api/v1/traits/${fileType}/${traitId}.${fileType}`
+export function getImageUrlForTrait(traitId: number, fileType?: ImageFileType): string {
+  const fileTypeOrDefault = fileType ?? ImageFileType.png
+  return `https://img.chainrunners.xyz/api/v1/traits/${fileTypeOrDefault}/${traitId}.${fileTypeOrDefault}`
 }
