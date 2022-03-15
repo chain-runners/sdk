@@ -8,7 +8,7 @@ import {
   useTheme,
 } from '@chakra-ui/react'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/all'
+import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/bs'
 import { usePersistedState, usePrimaryColor } from '../hooks'
 import { isBreakpointObject } from '../utils'
 import { DelayedRender } from './utils/DelayedRender'

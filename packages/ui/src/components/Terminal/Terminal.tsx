@@ -1,6 +1,6 @@
 import { Box, BoxProps, Flex, Input } from '@chakra-ui/react'
 import React, { useEffect, useMemo } from 'react'
-import { AiOutlineClose, AiOutlineExpandAlt } from 'react-icons/all'
+import { AiOutlineClose, AiOutlineExpandAlt } from 'react-icons/ai'
 import { usePrimaryColor } from '../../hooks'
 import { MotionIconButton } from '../../utils'
 import { TerminalData, TerminalMessageType } from './types'

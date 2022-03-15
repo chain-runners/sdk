@@ -1,5 +1,5 @@
 import React from 'react'
-import { IoCloseSharp } from 'react-icons/all'
+import { IoCloseSharp } from 'react-icons/io5'
 import { HackerIconButton } from './HackerIconButton'
 
 export type ModalCloseButtonProps = {

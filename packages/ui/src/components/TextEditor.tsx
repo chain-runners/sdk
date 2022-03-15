@@ -9,7 +9,7 @@ import {
   RichUtils,
 } from 'draft-js'
 import React, { MouseEvent, useCallback, useState } from 'react'
-import { BiBold, BiItalic, BiStrikethrough, BiUnderline } from 'react-icons/all'
+import { BiBold, BiItalic, BiStrikethrough, BiUnderline } from 'react-icons/bi'
 import { usePrimaryColor } from '../hooks'
 import { HackerButton } from './HackerButton'
 import { HackerIconButton } from './HackerIconButton'
