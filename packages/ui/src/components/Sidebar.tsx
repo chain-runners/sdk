@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Flex } from '@chakra-ui/react'
+import { AspectRatio, Box, Flex, FlexProps } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import React, { Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
 import { BsArrowBarLeft, BsArrowBarRight } from 'react-icons/bs'
@@ -15,6 +15,7 @@ export enum SidebarSide {
 export type SidebarTab = {
   icon: React.FC
   content: React.ReactElement
+  containerProps?: Partial<FlexProps>
 }
 
 export type SidebarProps = {
@@ -24,6 +25,9 @@ export type SidebarProps = {
   side?: SidebarSide
   width?: number | string
   tabs?: Array<SidebarTab>
+  tabButtonProps?: Partial<FlexProps>
+  tabContainerProps?: Partial<FlexProps>
+  containerProps?: Partial<FlexProps>
 }
 
 export const COLLAPSIBLE_SIDEBAR_CLOSED_WIDTH = '40px'
@@ -59,6 +63,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
   side = SidebarSide.Left,
   width = '300px',
   tabs,
+  tabButtonProps,
+  tabContainerProps,
+  containerProps,
 }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0)
   const isLeft = useMemo(() => side === SidebarSide.Left, [side])
@@ -93,6 +100,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       borderRightWidth={!isLeft || (isOpen && isMobile) ? 0 : '1px'}
       borderLeftWidth={isLeft || (isOpen && isMobile) ? 0 : '1px'}
       direction="column"
+      {...containerProps}
     >
       {tabs ? (
         <Flex h="full">
@@ -102,6 +110,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             borderColor={primaryColor}
             borderLeftWidth={isLeft && isOpen ? '1px' : 0}
             borderRightWidth={!isLeft && isOpen ? '1px' : 0}
+            {...tabContainerProps}
           >
             {tabs.map((tab, index) => {
               const isActiveTab = index === activeTabIndex
@@ -131,6 +140,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         setActiveTabIndex(index)
                       }
                     }}
+                    {...tabButtonProps}
+                    {...tab.containerProps}
                   >
                     {React.createElement(tab.icon)}
                   </Flex>
