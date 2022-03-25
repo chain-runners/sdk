@@ -1,7 +1,6 @@
 fragment runner on Token {
     __typename
     id
-    rawMetadata
     ownerAddress
     dnaString
     traitIds

@@ -5,6 +5,5 @@ fragment trait on Trait {
     displayName
     type
     traitIndex
-    svgContent
     tokenCount
 }

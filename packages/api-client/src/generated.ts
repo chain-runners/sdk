@@ -20,6 +20,13 @@ export type Scalars = {
   LuxonDateTime: any;
 };
 
+export type AlphaRaffleWinner = {
+  __typename?: 'AlphaRaffleWinner';
+  discriminator: Scalars['String'];
+  id: Scalars['String'];
+  username: Scalars['String'];
+};
+
 export type Bio = {
   __typename?: 'Bio';
   createdAt: Scalars['LuxonDateTime'];
@@ -45,6 +52,7 @@ export type InlineStyleRangeInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  claimPOAP: PoapMutationResponse;
   disconnectDiscordAccount: MutationResponse;
   linkDiscordAccount: MutationResponse;
   login: UserLoginResponse;
@@ -52,6 +60,11 @@ export type Mutation = {
   refreshToken: RefreshTokenResponse;
   setBioForRunner: MutationResponse;
   syncDiscordRoles: MutationResponse;
+};
+
+
+export type MutationClaimPoapArgs = {
+  recaptchaResponse: Scalars['String'];
 };
 
 
@@ -82,6 +95,22 @@ export type ObjectProperty = {
   type: Scalars['String'];
 };
 
+export type PoapCode = {
+  __typename?: 'POAPCode';
+  code: Scalars['String'];
+  createdAt: Scalars['LuxonDateTime'];
+  id: Scalars['ID'];
+  updatedAt: Scalars['LuxonDateTime'];
+  userId?: Maybe<Scalars['String']>;
+};
+
+export type PoapMutationResponse = {
+  __typename?: 'POAPMutationResponse';
+  message: Scalars['String'];
+  poap?: Maybe<PoapCode>;
+  success: Scalars['Boolean'];
+};
+
 export type PaginationArgs = {
   limit: Scalars['Int'];
   offset?: InputMaybe<Scalars['Int']>;
@@ -91,6 +120,8 @@ export type Query = {
   __typename?: 'Query';
   bioForRunner?: Maybe<Bio>;
   getObjectProperties?: Maybe<Array<ObjectProperty>>;
+  getTraitsByDNA: Array<Trait>;
+  poapForUser?: Maybe<PoapCode>;
   token?: Maybe<Token>;
   tokens: TokenListResponse;
   trait?: Maybe<Trait>;
@@ -108,6 +139,11 @@ export type QueryBioForRunnerArgs = {
 
 export type QueryGetObjectPropertiesArgs = {
   objectName: Scalars['String'];
+};
+
+
+export type QueryGetTraitsByDnaArgs = {
+  dna: Scalars['String'];
 };
 
 
@@ -290,12 +326,12 @@ export type WalletListResponse = {
 
 export type RunnerFragment = { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
 
-export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, svgContent: string, tokenCount: number };
+export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, tokenCount: number };
 
 export type GetAllTraitsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllTraitsQuery = { __typename?: 'Query', traits: { __typename?: 'TraitListResponse', count: number, records: Array<{ __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, svgContent: string, tokenCount: number }> } };
+export type GetAllTraitsQuery = { __typename?: 'Query', traits: { __typename?: 'TraitListResponse', count: number, records: Array<{ __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, tokenCount: number }> } };
 
 export type GetBioForRunnerQueryVariables = Exact<{
   runnerId: Scalars['Int'];
@@ -345,7 +381,6 @@ export const TraitFragmentDoc = gql`
   displayName
   type
   traitIndex
-  svgContent
   tokenCount
 }
     `;
