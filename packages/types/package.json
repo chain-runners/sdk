@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/types",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@chain-runners/api-client": "^0.0.3"
+    "@chain-runners/api-client": "^0.1.0"
   },
   "author": "Chain Runners Devs",
   "license": "ISC",
