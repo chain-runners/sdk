@@ -16,9 +16,11 @@
     "@chakra-ui/react": "^1.7.1",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
+    "@types/lodash-es": "^4.17.6",
     "@types/react": "^17.0.37",
     "draft-js": "^0.11.7",
     "framer-motion": "^4.1.17",
+    "lodash-es": "^4.17.21",
     "react": "^17.0.2",
     "react-icons": "^4.3.1"
   },

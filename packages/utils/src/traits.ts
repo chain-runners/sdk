@@ -1,6 +1,6 @@
 import { Maybe, RunnerTrait, TraitType } from '@chain-runners/types'
 import { BigNumber } from 'ethers'
-import { startCase } from 'lodash'
+import { startCase } from 'lodash-es'
 
 export function parseTraitTypeFromValue(traitVal: string): Maybe<TraitType> {
   return (

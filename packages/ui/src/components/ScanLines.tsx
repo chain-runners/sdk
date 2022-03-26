@@ -1,5 +1,5 @@
 import { Box, Flex, FlexProps } from '@chakra-ui/react'
-import { range } from 'lodash'
+import { range } from 'lodash-es'
 import React, { useMemo } from 'react'
 import { usePrimaryColor } from '../hooks'
 import { alphaColor } from '../utils/colors'

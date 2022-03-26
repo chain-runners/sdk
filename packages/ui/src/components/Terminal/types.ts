@@ -1,5 +1,5 @@
 import { BoxProps } from '@chakra-ui/react'
-import { get } from 'lodash'
+import { get } from 'lodash-es'
 import React, { Dispatch, KeyboardEvent, MutableRefObject, SetStateAction } from 'react'
 
 export enum TerminalMessageType {
