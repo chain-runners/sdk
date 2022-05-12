@@ -15,11 +15,12 @@ export const HackerTooltip: React.FC<HackerTooltipProps> = React.forwardRef(
         colorScheme={primaryColor}
         borderRadius={0}
         fontWeight="thin"
-        bgColor="blackAlpha.700"
+        bgColor="blackAlpha.800"
         color={primaryColor}
         borderColor={primaryColor}
         borderWidth="1px"
         openDelay={300}
+        backdropFilter="blur(4px)"
         {...props}
       />
     )
