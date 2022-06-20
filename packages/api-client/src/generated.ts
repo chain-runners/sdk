@@ -126,9 +126,12 @@ export type Query = {
   tokens: TokenListResponse;
   trait?: Maybe<Trait>;
   traits: TraitListResponse;
+  unclaimedXRTokens: UnclaimedTokenResponse;
   wallet?: Maybe<Wallet>;
   wallets: WalletListResponse;
   whoAmI?: Maybe<User>;
+  xrToken?: Maybe<XrToken>;
+  xrTokens: XrTokenListResponse;
 };
 
 
@@ -167,6 +170,11 @@ export type QueryTraitsArgs = {
 };
 
 
+export type QueryUnclaimedXrTokensArgs = {
+  address: Scalars['String'];
+};
+
+
 export type QueryWalletArgs = {
   id: Scalars['ID'];
 };
@@ -174,6 +182,16 @@ export type QueryWalletArgs = {
 
 export type QueryWalletsArgs = {
   pagination?: InputMaybe<PaginationArgs>;
+};
+
+
+export type QueryXrTokenArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type QueryXrTokensArgs = {
+  options?: InputMaybe<XrTokenQueryOptions>;
 };
 
 export type RefreshTokenResponse = {
@@ -282,6 +300,12 @@ export enum TraitType {
   Race = 'Race'
 }
 
+export type UnclaimedTokenResponse = {
+  __typename?: 'UnclaimedTokenResponse';
+  count: Scalars['Int'];
+  tokenIds: Array<Scalars['Int']>;
+};
+
 export type User = {
   __typename?: 'User';
   address: Scalars['String'];
@@ -324,7 +348,54 @@ export type WalletListResponse = {
   records: Array<Wallet>;
 };
 
-export type RunnerFragment = { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
+export type XrToken = {
+  __typename?: 'XRToken';
+  attributes: Array<XrTokenAttribute>;
+  createdAt: Scalars['LuxonDateTime'];
+  dnaString: Scalars['String'];
+  id: Scalars['Int'];
+  ownerAddress: Scalars['String'];
+  rawMetadata: Scalars['String'];
+  svg: Scalars['String'];
+  traitIds: Array<Scalars['Int']>;
+  traits: Array<Trait>;
+  updatedAt: Scalars['LuxonDateTime'];
+};
+
+export type XrTokenAttribute = {
+  __typename?: 'XRTokenAttribute';
+  createdAt: Scalars['LuxonDateTime'];
+  id: Scalars['ID'];
+  token: XrToken;
+  tokenId: Scalars['Int'];
+  trait: Trait;
+  traitId: Scalars['String'];
+  updatedAt: Scalars['LuxonDateTime'];
+};
+
+export type XrTokenFilters = {
+  ownedBy?: InputMaybe<Scalars['String']>;
+  traits?: InputMaybe<Array<XrTokenTraitFilter>>;
+  withBioOnly?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type XrTokenListResponse = {
+  __typename?: 'XRTokenListResponse';
+  count: Scalars['Float'];
+  records: Array<XrToken>;
+};
+
+export type XrTokenQueryOptions = {
+  filters?: InputMaybe<XrTokenFilters>;
+  pagination?: InputMaybe<PaginationArgs>;
+};
+
+export type XrTokenTraitFilter = {
+  traitType: TraitType;
+  values: Array<Scalars['String']>;
+};
+
+export type RunnerFragment = { __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
 
 export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, tokenCount: number };
 
@@ -345,27 +416,26 @@ export type GetRunnerByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetRunnerByIdQuery = { __typename?: 'Query', token?: { __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
+export type GetRunnerByIdQuery = { __typename?: 'Query', token?: { __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
 
 export type GetRunnersQueryVariables = Exact<{
   options?: InputMaybe<TokenQueryOptions>;
 }>;
 
 
-export type GetRunnersQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetRunnersQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
 export type GetRunnersByOwnerQueryVariables = Exact<{
   owner: Scalars['String'];
 }>;
 
 
-export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, rawMetadata: string, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
 export const RunnerFragmentDoc = gql`
     fragment runner on Token {
   __typename
   id
-  rawMetadata
   ownerAddress
   dnaString
   traitIds
