@@ -399,6 +399,8 @@ export type RunnerFragment = { __typename: 'Token', id: number, ownerAddress: st
 
 export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, tokenCount: number };
 
+export type XrRunnerFragment = { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
+
 export type GetAllTraitsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -430,7 +432,21 @@ export type GetRunnersByOwnerQueryVariables = Exact<{
 }>;
 
 
-export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> }, xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+
+export type GetXrRunnerByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetXrRunnerByIdQuery = { __typename?: 'Query', xrToken?: { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
+
+export type GetXrRunnersQueryVariables = Exact<{
+  options?: InputMaybe<XrTokenQueryOptions>;
+}>;
+
+
+export type GetXrRunnersQuery = { __typename?: 'Query', xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
 export const RunnerFragmentDoc = gql`
     fragment runner on Token {
@@ -452,6 +468,17 @@ export const TraitFragmentDoc = gql`
   type
   traitIndex
   tokenCount
+}
+    `;
+export const XrRunnerFragmentDoc = gql`
+    fragment xrRunner on XRToken {
+  __typename
+  id
+  ownerAddress
+  dnaString
+  traitIds
+  updatedAt
+  createdAt
 }
     `;
 export const GetAllTraitsDocument = gql`
@@ -503,8 +530,32 @@ export const GetRunnersByOwnerDocument = gql`
       ...runner
     }
   }
+  xrTokens(options: {filters: {ownedBy: $owner}}) {
+    count
+    records {
+      ...xrRunner
+    }
+  }
 }
-    ${RunnerFragmentDoc}`;
+    ${RunnerFragmentDoc}
+${XrRunnerFragmentDoc}`;
+export const GetXrRunnerByIdDocument = gql`
+    query getXRRunnerById($id: ID!) {
+  xrToken(id: $id) {
+    ...xrRunner
+  }
+}
+    ${XrRunnerFragmentDoc}`;
+export const GetXrRunnersDocument = gql`
+    query getXRRunners($options: XRTokenQueryOptions) {
+  xrTokens(options: $options) {
+    count
+    records {
+      ...xrRunner
+    }
+  }
+}
+    ${XrRunnerFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string) => Promise<T>;
 
@@ -527,6 +578,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getRunnersByOwner(variables: GetRunnersByOwnerQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetRunnersByOwnerQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetRunnersByOwnerQuery>(GetRunnersByOwnerDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getRunnersByOwner');
+    },
+    getXRRunnerById(variables: GetXrRunnerByIdQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetXrRunnerByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetXrRunnerByIdQuery>(GetXrRunnerByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getXRRunnerById');
+    },
+    getXRRunners(variables?: GetXrRunnersQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetXrRunnersQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetXrRunnersQuery>(GetXrRunnersDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getXRRunners');
     }
   };
 }
