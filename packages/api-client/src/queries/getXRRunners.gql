@@ -1,0 +1,8 @@
+query getXRRunners($options: XRTokenQueryOptions) {
+    xrTokens(options: $options) {
+        count
+        records {
+            ...xrRunner
+        }
+    }
+}
