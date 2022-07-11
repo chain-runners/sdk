@@ -1,0 +1,5 @@
+query getXRRunnerById($id: ID!) {
+    xrToken(id: $id) {
+        ...xrRunner
+    }
+}

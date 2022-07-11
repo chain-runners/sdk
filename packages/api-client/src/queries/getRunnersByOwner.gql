@@ -5,4 +5,10 @@ query getRunnersByOwner($owner: String!) {
             ...runner
         }
     }
+    xrTokens(options: {filters: {ownedBy: $owner}}) {
+        count
+        records {
+            ...xrRunner
+        }
+    }
 }

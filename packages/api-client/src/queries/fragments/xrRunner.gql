@@ -1,0 +1,9 @@
+fragment xrRunner on XRToken {
+    __typename
+    id
+    ownerAddress
+    dnaString
+    traitIds
+    updatedAt
+    createdAt
+}
