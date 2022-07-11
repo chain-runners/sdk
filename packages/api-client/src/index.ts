@@ -6,6 +6,7 @@ export { TraitType } from './generated'
 
 export const DEFAULT_CHAIN_RUNNERS_GRAPHQL_API_ENDPOINT =
   'https://api.chainrunners.xyz/graphql'
+
 export type GraphQLAPIClient = ReturnType<typeof getSdk>
 
 function getAPIHeaders(token?: string): Record<string, string> {
