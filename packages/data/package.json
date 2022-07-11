@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@chain-runners/types": "^0.1.0"
+    "@chain-runners/types": "^0.1.1"
   },
   "author": "Chain Runners Devs",
   "license": "ISC",

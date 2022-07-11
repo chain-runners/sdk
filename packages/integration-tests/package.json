@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "name": "@chain-runners/integration-tests",
   "main": "dist/index.js",
@@ -15,7 +15,7 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "@chain-runners/api-client": "^0.1.0"
+    "@chain-runners/api-client": "^0.1.1"
   },
   "private": "true",
   "author": "Chain Runners Devs",
