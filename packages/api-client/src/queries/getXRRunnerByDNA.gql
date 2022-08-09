@@ -1,0 +1,5 @@
+query getXRRunnerByDNA($dna: String!) {
+    xrTokenByDNA(dna: $dna) {
+        ...xrRunner
+    }
+}

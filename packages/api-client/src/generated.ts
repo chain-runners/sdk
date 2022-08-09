@@ -131,6 +131,7 @@ export type Query = {
   wallets: WalletListResponse;
   whoAmI?: Maybe<User>;
   xrToken?: Maybe<XrToken>;
+  xrTokenByDNA?: Maybe<XrToken>;
   xrTokens: XrTokenListResponse;
 };
 
@@ -187,6 +188,11 @@ export type QueryWalletsArgs = {
 
 export type QueryXrTokenArgs = {
   id: Scalars['ID'];
+};
+
+
+export type QueryXrTokenByDnaArgs = {
+  dna: Scalars['String'];
 };
 
 
@@ -434,6 +440,13 @@ export type GetRunnersByOwnerQueryVariables = Exact<{
 
 export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> }, xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
 
+export type GetXrRunnerByDnaQueryVariables = Exact<{
+  dna: Scalars['String'];
+}>;
+
+
+export type GetXrRunnerByDnaQuery = { __typename?: 'Query', xrTokenByDNA?: { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
+
 export type GetXrRunnerByIdQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
@@ -539,6 +552,13 @@ export const GetRunnersByOwnerDocument = gql`
 }
     ${RunnerFragmentDoc}
 ${XrRunnerFragmentDoc}`;
+export const GetXrRunnerByDnaDocument = gql`
+    query getXRRunnerByDNA($dna: String!) {
+  xrTokenByDNA(dna: $dna) {
+    ...xrRunner
+  }
+}
+    ${XrRunnerFragmentDoc}`;
 export const GetXrRunnerByIdDocument = gql`
     query getXRRunnerById($id: ID!) {
   xrToken(id: $id) {
@@ -578,6 +598,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getRunnersByOwner(variables: GetRunnersByOwnerQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetRunnersByOwnerQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetRunnersByOwnerQuery>(GetRunnersByOwnerDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getRunnersByOwner');
+    },
+    getXRRunnerByDNA(variables: GetXrRunnerByDnaQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetXrRunnerByDnaQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetXrRunnerByDnaQuery>(GetXrRunnerByDnaDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getXRRunnerByDNA');
     },
     getXRRunnerById(variables: GetXrRunnerByIdQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetXrRunnerByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetXrRunnerByIdQuery>(GetXrRunnerByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getXRRunnerById');
