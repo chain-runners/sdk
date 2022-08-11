@@ -1,7 +1,11 @@
 import { css, Global } from '@emotion/react'
 import React from 'react'
 
-export const GlobalStylesProvider: React.FC = ({ children }) => {
+export type GlobalStylesProviderProps = {
+  children?: React.ReactElement
+}
+
+export const GlobalStylesProvider: React.FC<GlobalStylesProviderProps> = ({ children }) => {
   return (
     <>
       <Global

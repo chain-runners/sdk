@@ -5,6 +5,7 @@ import { defaultHackerUITheme, HackerUITheme } from '../theme'
 import { GlobalStylesProvider } from './GlobalStylesProvider'
 
 export type HackerUIProviderProps = {
+  children?: React.ReactElement
   theme?: HackerUITheme
 }
 

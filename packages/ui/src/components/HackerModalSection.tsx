@@ -3,6 +3,7 @@ import React from 'react'
 import { usePrimaryColor } from '../hooks'
 
 export type HackerModalSectionProps = {
+  children: React.ReactElement
   title?: string | React.ReactElement
   extraTitleContent?: React.ReactElement
   containerProps?: Partial<FlexProps>

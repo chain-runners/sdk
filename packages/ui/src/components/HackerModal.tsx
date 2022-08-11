@@ -6,6 +6,7 @@ import { HackerBox } from './HackerBox'
 import { ModalCloseButton } from './ModalCloseButton'
 
 export type HackerModalProps = {
+  children?: React.ReactElement
   onClose: () => void
   onExitComplete?: () => void
   layoutId?: string

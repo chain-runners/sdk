@@ -28,6 +28,7 @@ export type SidebarProps = {
   tabButtonProps?: Partial<FlexProps>
   tabContainerProps?: Partial<FlexProps>
   containerProps?: Partial<FlexProps>
+  children?: React.ReactElement
 }
 
 export const COLLAPSIBLE_SIDEBAR_CLOSED_WIDTH = '40px'

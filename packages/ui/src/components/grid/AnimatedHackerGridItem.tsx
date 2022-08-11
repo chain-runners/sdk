@@ -3,6 +3,7 @@ import { MotionGridItem } from '../../utils/animation'
 import { ANIMATED_HACKER_GRID_ANIMATION_VARIANTS } from './constants'
 
 export type AnimatedHackerGridItemProps = {
+  children?: React.ReactElement
   onClick?: () => void
   layoutId?: string
 }

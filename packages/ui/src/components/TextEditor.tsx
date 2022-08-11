@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react'
 import {
   convertFromRaw,
-  convertToRaw,
+  convertToRaw, DraftEditorCommand,
   Editor,
   EditorState,
   RawDraftContentState,
@@ -104,7 +104,7 @@ export const TextEditor: React.FC<TextEditorProps> = ({
     onCancel?.()
   }, [onCancel, textBlocks])
 
-  const handleKeyCommand = useCallback((command, editorState) => {
+  const handleKeyCommand = useCallback((command: DraftEditorCommand, editorState: EditorState) => {
     const newState = RichUtils.handleKeyCommand(editorState, command)
     if (newState) {
       setEditorState(newState)
@@ -223,6 +223,8 @@ export const TextEditor: React.FC<TextEditorProps> = ({
         </Flex>
       </Flex>
       <Flex flex={1} direction="column" p={1} overflowY="auto">
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
         <Editor
           placeholder={placeholder}
           editorState={editorState}

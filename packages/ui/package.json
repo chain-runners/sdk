@@ -13,16 +13,16 @@
     "watch": "tsc -b -w --preserveWatchOutput"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.7.1",
+    "@chakra-ui/react": "^2.2.6",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@types/lodash-es": "^4.17.6",
-    "@types/react": "^17.0.37",
+    "@types/react": "^18.0.17",
     "draft-js": "^0.11.7",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^7.1.0",
     "lodash-es": "^4.17.21",
-    "react": "^17.0.2",
-    "react-icons": "^4.3.1"
+    "react": "^18.2.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

@@ -3,6 +3,7 @@ import React, { useCallback, useEffect } from 'react'
 import { TerminalAppContext } from '../types'
 
 export type TextReaderAppProps = TerminalAppContext & {
+  children?: React.ReactElement
   containerProps?: Partial<FlexProps>
 }
 
