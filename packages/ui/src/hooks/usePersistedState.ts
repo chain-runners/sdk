@@ -10,10 +10,15 @@ export function usePersistedState<T>(
 ): [T, Dispatch<SetStateAction<T>>] {
   const [value, setValue] = React.useState(() => {
     if (!preferPersisted) return defaultValue
-    const persistedValue = window.localStorage.getItem(key)
-    return persistedValue === null || persistedValue === 'undefined'
-      ? defaultValue
-      : transformFunction(JSON.parse(persistedValue))
+    try {
+      const persistedValue = window.localStorage.getItem(key)
+      return persistedValue === null || persistedValue === 'undefined'
+        ? defaultValue
+        : transformFunction(JSON.parse(persistedValue))
+    } catch (e) {
+      console.error(e)
+      return defaultValue
+    }
   })
 
   useEffect(() => {
