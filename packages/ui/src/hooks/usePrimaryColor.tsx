@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { HACKER_GREEN_COLOR } from '../theme'
 import { usePersistedState } from './usePersistedState'
 
@@ -20,11 +20,25 @@ export type PrimaryThemeColorProviderProps = {
   children?: React.ReactElement
 }
 
-export const PrimaryThemeColorProvider: React.FC<PrimaryThemeColorProviderProps> = ({ children }) => {
+export const PersistentPrimaryThemeColorProvider: React.FC<PrimaryThemeColorProviderProps> = ({ children }) => {
   const [color, setColor] = usePersistedState<string>(
     DEFAULT_PRIMARY_THEME_COLOR,
     'PrimaryThemeColor',
   )
+  return (
+    <PrimaryThemeColorContext.Provider
+      value={{
+        primaryColor: color,
+        setPrimaryColor: setColor,
+      }}
+    >
+      {children}
+    </PrimaryThemeColorContext.Provider>
+  )
+}
+
+export const PrimaryThemeColorProvider: React.FC<PrimaryThemeColorProviderProps> = ({ children }) => {
+  const [color, setColor] = useState<string>(DEFAULT_PRIMARY_THEME_COLOR)
   return (
     <PrimaryThemeColorContext.Provider
       value={{
