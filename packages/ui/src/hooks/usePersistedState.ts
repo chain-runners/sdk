@@ -22,7 +22,11 @@ export function usePersistedState<T>(
   })
 
   useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(value))
+    try {
+      window.localStorage.setItem(key, JSON.stringify(value))
+    } catch (e) {
+      console.error(e)
+    }
   }, [key, value])
   return [value, setValue]
 }

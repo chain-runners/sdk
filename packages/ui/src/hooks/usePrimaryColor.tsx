@@ -17,12 +17,15 @@ const PrimaryThemeColorContext = React.createContext<PrimaryThemeColorContextVal
 })
 
 export type PrimaryThemeColorProviderProps = {
+  color?: string
   children?: React.ReactElement
 }
 
-export const PersistentPrimaryThemeColorProvider: React.FC<PrimaryThemeColorProviderProps> = ({ children }) => {
+export const PersistentPrimaryThemeColorProvider: React.FC<
+  PrimaryThemeColorProviderProps
+> = ({ children, color: defaultColor }) => {
   const [color, setColor] = usePersistedState<string>(
-    DEFAULT_PRIMARY_THEME_COLOR,
+    defaultColor ?? DEFAULT_PRIMARY_THEME_COLOR,
     'PrimaryThemeColor',
   )
   return (
@@ -37,8 +40,11 @@ export const PersistentPrimaryThemeColorProvider: React.FC<PrimaryThemeColorProv
   )
 }
 
-export const PrimaryThemeColorProvider: React.FC<PrimaryThemeColorProviderProps> = ({ children }) => {
-  const [color, setColor] = useState<string>(DEFAULT_PRIMARY_THEME_COLOR)
+export const PrimaryThemeColorProvider: React.FC<PrimaryThemeColorProviderProps> = ({
+  children,
+  color: defaultColor,
+}) => {
+  const [color, setColor] = useState<string>(defaultColor ?? DEFAULT_PRIMARY_THEME_COLOR)
   return (
     <PrimaryThemeColorContext.Provider
       value={{
