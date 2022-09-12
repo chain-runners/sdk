@@ -20,10 +20,10 @@
     "@chain-runners/types": "^0.1.4",
     "blend-promise-utils": "^1.28.0",
     "ethers": "^5.5.2",
-    "lodash": "^4.17.21"
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.177"
+    "@types/lodash-es": "^4.17.6"
   },
   "author": "Chain Runners Devs",
   "license": "ISC",
