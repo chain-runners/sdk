@@ -356,6 +356,7 @@ export type WalletListResponse = {
 
 export type XrToken = {
   __typename?: 'XRToken';
+  activeBodyType: Scalars['Int'];
   attributes: Array<XrTokenAttribute>;
   createdAt: Scalars['LuxonDateTime'];
   dnaString: Scalars['String'];
@@ -405,7 +406,7 @@ export type RunnerFragment = { __typename: 'Token', id: number, ownerAddress: st
 
 export type TraitFragment = { __typename: 'Trait', id: number, name: string, displayName: string, type: TraitType, traitIndex: number, tokenCount: number };
 
-export type XrRunnerFragment = { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any };
+export type XrRunnerFragment = { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any, activeBodyType: number };
 
 export type GetAllTraitsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -438,28 +439,28 @@ export type GetRunnersByOwnerQueryVariables = Exact<{
 }>;
 
 
-export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> }, xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetRunnersByOwnerQuery = { __typename?: 'Query', tokens: { __typename?: 'TokenListResponse', count: number, records: Array<{ __typename: 'Token', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> }, xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any, activeBodyType: number }> } };
 
 export type GetXrRunnerByDnaQueryVariables = Exact<{
   dna: Scalars['String'];
 }>;
 
 
-export type GetXrRunnerByDnaQuery = { __typename?: 'Query', xrTokenByDNA?: { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
+export type GetXrRunnerByDnaQuery = { __typename?: 'Query', xrTokenByDNA?: { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any, activeBodyType: number } | null | undefined };
 
 export type GetXrRunnerByIdQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
-export type GetXrRunnerByIdQuery = { __typename?: 'Query', xrToken?: { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any } | null | undefined };
+export type GetXrRunnerByIdQuery = { __typename?: 'Query', xrToken?: { __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any, activeBodyType: number } | null | undefined };
 
 export type GetXrRunnersQueryVariables = Exact<{
   options?: InputMaybe<XrTokenQueryOptions>;
 }>;
 
 
-export type GetXrRunnersQuery = { __typename?: 'Query', xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any }> } };
+export type GetXrRunnersQuery = { __typename?: 'Query', xrTokens: { __typename?: 'XRTokenListResponse', count: number, records: Array<{ __typename: 'XRToken', id: number, ownerAddress: string, dnaString: string, traitIds: Array<number>, updatedAt: any, createdAt: any, activeBodyType: number }> } };
 
 export const RunnerFragmentDoc = gql`
     fragment runner on Token {
@@ -492,6 +493,7 @@ export const XrRunnerFragmentDoc = gql`
   traitIds
   updatedAt
   createdAt
+  activeBodyType
 }
     `;
 export const GetAllTraitsDocument = gql`

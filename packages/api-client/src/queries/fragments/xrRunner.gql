@@ -6,4 +6,5 @@ fragment xrRunner on XRToken {
     traitIds
     updatedAt
     createdAt
+    activeBodyType
 }
