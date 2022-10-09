@@ -12,20 +12,22 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "watch": "tsc -b -w --preserveWatchOutput"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@types/lodash-es": "^4.17.6",
-    "@types/react": "^18.0.21",
-    "draft-js": "^0.11.7",
     "framer-motion": "^7.5.3",
-    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0"
+    "lodash-es": "^4"
+  },
+  "dependencies": {
+    "react-icons": "^4.4.0",
+    "draft-js": "^0.11.7"
   },
   "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/lodash-es": "^4.17.6",
     "@babel/core": "^7.16.0",
     "@types/draft-js": "^0.11.6",
     "babel-loader": "^8.2.3",
@@ -34,7 +36,14 @@
     "typescript": "^4.1.2",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "@chakra-ui/react": "^2.3.5",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "framer-motion": "^7.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lodash-es": "^4"
   },
   "publishConfig": {
     "access": "public"

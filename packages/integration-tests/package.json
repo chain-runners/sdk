@@ -15,7 +15,17 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "@chain-runners/api-client": "^0.2.0"
+    "@chain-runners/api-client": "^0.2.0",
+    "@chakra-ui/react": "^2.3.5",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "framer-motion": "^7.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lodash-es": "^4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3"
   },
   "private": "true",
   "author": "Chain Runners Devs",
