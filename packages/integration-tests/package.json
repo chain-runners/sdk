@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "name": "@chain-runners/integration-tests",
   "main": "dist/index.js",
@@ -15,14 +15,14 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "@chain-runners/api-client": "^0.2.0",
+    "@chain-runners/api-client": "^0.2.1",
     "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "framer-motion": "^7.5.3",
+    "lodash-es": "^4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lodash-es": "^4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"

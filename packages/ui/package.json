@@ -1,6 +1,6 @@
 {
   "name": "@chain-runners/ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -17,33 +17,33 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "framer-motion": "^7.5.3",
+    "lodash-es": "^4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lodash-es": "^4"
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "react-icons": "^4.4.0",
-    "draft-js": "^0.11.7"
+    "draft-js": "^0.11.7",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.21",
-    "@types/lodash-es": "^4.17.6",
     "@babel/core": "^7.16.0",
-    "@types/draft-js": "^0.11.6",
-    "babel-loader": "^8.2.3",
-    "esbuild-loader": "^2.7.0",
-    "html-webpack-plugin": "^5.0.0-beta.1",
-    "typescript": "^4.1.2",
-    "webpack": "^5.11.1",
-    "webpack-cli": "^4.3.0",
-    "webpack-dev-server": "^3.11.0",
     "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@types/draft-js": "^0.11.6",
+    "@types/lodash-es": "^4.17.6",
+    "@types/react": "^18.0.21",
+    "babel-loader": "^8.2.3",
+    "esbuild-loader": "^2.7.0",
     "framer-motion": "^7.5.3",
+    "html-webpack-plugin": "^5.0.0-beta.1",
+    "lodash-es": "^4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "lodash-es": "^4"
+    "typescript": "^4.1.2",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0",
+    "webpack-dev-server": "^3.11.0"
   },
   "publishConfig": {
     "access": "public"
