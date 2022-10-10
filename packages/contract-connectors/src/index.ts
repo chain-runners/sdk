@@ -3,6 +3,7 @@
 /* eslint-disable */
 export type { Ownable } from './Ownable'
 export type { ERC721 } from './ERC721'
+export type { ERC721AClaimable } from "./ERC721AClaimable";
 export type { ERC721Enumerable } from './ERC721Enumerable'
 export type { IERC721Enumerable } from './IERC721Enumerable'
 export type { IERC721Metadata } from './IERC721Metadata'
@@ -10,18 +11,47 @@ export type { IERC721 } from './IERC721'
 export type { IERC721Receiver } from './IERC721Receiver'
 export type { ERC165 } from './ERC165'
 export type { IERC165 } from './IERC165'
+
 export type { ChainRunners } from './ChainRunners'
 export type { ChainRunnersBaseRenderer } from './ChainRunnersBaseRenderer'
 export type { ChainRunnersOffChainDNARenderer } from './ChainRunnersOffChainDNARenderer'
 export type { ChainRunnersOffChainRenderer } from './ChainRunnersOffChainRenderer'
+
+export type { ChainRunnersXR } from "./ChainRunnersXR";
+export type { ChainRunnersXRBaseRenderer } from "./ChainRunnersXRBaseRenderer";
+export type { ChainRunnersXRRendererV2 } from "./ChainRunnersXRRendererV2";
+
+export type { ChainRunnersItems } from "./ChainRunnersItems";
+export type { ChainRunnersItemRenderer } from "./ChainRunnersItemRenderer";
+export type { ChainRunnersItemsBaseRenderer } from "./ChainRunnersItemsBaseRenderer";
+
 export type { IChainRunners } from './IChainRunners'
 export type { IChainRunnersRenderer } from './IChainRunnersRenderer'
+export type { IChainRunnersItems } from "./IChainRunnersItems";
 
 export const MAINNET_CHAIN_RUNNERS_CONTRACT_ADDRESS =
   '0x97597002980134beA46250Aa0510C9B90d87A587'
 
 export const MAINNET_CHAIN_RUNNERS_RENDERING_CONTRACT_ADDRESS =
   '0xfdac77881ff861ff76a83cc43a1be3c317c6a1cc'
+
+export const MAINNET_CHAIN_RUNNERS_OFF_CHAIN_DNA_RENDERER_CONTRACT_ADDRESS =
+  '0x78F51427020C5ba128b07E99325D71250B0ed0E1'
+
+export const MAINNET_CHAIN_RUNNERS_XR_CONTRACT_ADDRESS =
+  '0x4e1824ca2e3dcef21d8eabcf11ccd2b5fd46774b'
+
+export const MAINNET_CHAIN_RUNNERS_XR_BASE_RENDERER_CONTRACT_ADDRESS =
+  '0x76d2D20dc9c39d683844EbB1E4428025B83914d1'
+
+export const MAINNET_CHAIN_RUNNERS_XR_V2_RENDERER_CONTRACT_ADDRESS =
+  '0xc0ADAba35305BcFf0E991F96ea1F28273E4A4502'
+
+export const MAINNET_CHAIN_RUNNERS_ITEMS_CONTRACT_ADDRESS =
+  '0xEeCfc77E5512063d4d87b67F79748b6Da07fBcDD'
+
+export const MAINNET_CHAIN_RUNNERS_ITEMS_BASE_RENDERER_CONTRACT_ADDRESS =
+  '0x17DAD727597c54E90449eD4f7686B1460a33aD3d'
 
 export { Ownable__factory } from './factories/Ownable__factory'
 export { ERC721__factory } from './factories/ERC721__factory'
@@ -32,9 +62,21 @@ export { IERC721__factory } from './factories/IERC721__factory'
 export { IERC721Receiver__factory } from './factories/IERC721Receiver__factory'
 export { ERC165__factory } from './factories/ERC165__factory'
 export { IERC165__factory } from './factories/IERC165__factory'
+export { ERC721AClaimable__factory } from "./factories/ERC721AClaimable__factory";
+
 export { ChainRunners__factory } from './factories/ChainRunners__factory'
 export { ChainRunnersBaseRenderer__factory } from './factories/ChainRunnersBaseRenderer__factory'
 export { ChainRunnersOffChainDNARenderer__factory } from './factories/ChainRunnersOffChainDNARenderer__factory'
 export { ChainRunnersOffChainRenderer__factory } from './factories/ChainRunnersOffChainRenderer__factory'
+
+export { ChainRunnersXR__factory } from "./factories/ChainRunnersXR__factory";
+export { ChainRunnersXRBaseRenderer__factory } from "./factories/ChainRunnersXRBaseRenderer__factory";
+export { ChainRunnersXRRendererV2__factory } from "./factories/ChainRunnersXRRendererV2__factory";
+
+export { ChainRunnersItems__factory } from "./factories/ChainRunnersItems__factory";
+export { ChainRunnersItemRenderer__factory } from "./factories/ChainRunnersItemRenderer__factory";
+export { ChainRunnersItemsBaseRenderer__factory } from "./factories/ChainRunnersItemsBaseRenderer__factory";
+
 export { IChainRunners__factory } from './factories/IChainRunners__factory'
 export { IChainRunnersRenderer__factory } from './factories/IChainRunnersRenderer__factory'
+export { IChainRunnersItems__factory } from "./factories/IChainRunnersItems__factory";
